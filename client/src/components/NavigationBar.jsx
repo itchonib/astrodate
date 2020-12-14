@@ -62,6 +62,10 @@ export default function DenseAppBar() {
     setAnchorEl(null);
   };
 
+  if (!currentUser) {
+    return <p></p>;
+  }
+
   return (
     // <div className={classes.root}>
     <AppBar position="static" className={classes.root}>

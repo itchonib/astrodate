@@ -4,6 +4,7 @@ import { AppContext } from '../../context/AppContext';
 import axios from 'axios';
 import { schema } from './schema';
 import Start from './Parts/Start';
+import Stepper from './Stepper';
 
 const SignUp = ({ history }) => {
   const { gender, setCurrentUser } = useContext(AppContext);
@@ -58,15 +59,18 @@ const SignUp = ({ history }) => {
 
   return (
     <div className={'main-holder-sign-up'}>
-      <form onSubmit={handleSubmit} className={'container-caro'}>
-        <p className={'title-su'}> Astrodate </p>
+      <p className={'title-su'}> Astrodate </p>
+      <form onSubmit={handleSubmit} className={'start'}>
+        {/* 
         <p className={'sub-title-su'}> LET'S GET STARTED! </p>
         <ActiveForm handleChange={handleChange} userData={userData} />
         <br />
         <button className={'sub-button-su'} type="submit">
           {' '}
           {activeSchema.next ? 'Next' : 'Submit'}{' '}
-        </button>
+        </button> */}
+
+        <Stepper />
       </form>
     </div>
   );

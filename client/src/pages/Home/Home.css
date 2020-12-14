@@ -2,13 +2,14 @@
 
 .homecontainer {
   height: 100vh;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: url('https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   color: #ffffff;
 }
 .hometitle {
@@ -36,7 +37,7 @@
   font-size: 12px;
   line-height: 20px;
   color: #ffffff;
-  /* width: 280px; */
+  width: 280px;
   margin: 2.5em 0 2.5em 0;
 }
 
@@ -72,6 +73,11 @@
   text-align: center;
 }
 
+.create-link {
+  color: #181827;
+  text-decoration: none;
+}
+
 .sign {
   font-weight: bold;
   font-size: 24px;
@@ -79,4 +85,10 @@
   color: white;
   list-style-type: none;
   text-align: center;
+}
+.signin-link {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  color: white;
 }

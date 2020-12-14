@@ -3,27 +3,47 @@
   background-image: url('https://images.pexels.com/photos/2779948/pexels-photo-2779948.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
   background-attachment: fixed;
   background-size: contain;
-  height: 130vh;
-}
-
-.container-caro {
   height: 100vh;
-  /* width: inherit; */
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.start {
+  height: auto;
+  padding: 2em;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
   /* justify-content: center; */
-  /* background: #181826; */
-  background-image: url('https://images.pexels.com/photos/2779948/pexels-photo-2779948.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-attachment: fixed;
-  background-size: contain;
+  align-items: center;
+  /* background-image: url('https://images.pexels.com/photos/2779948/pexels-photo-2779948.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); */
+  /* background-attachment: fixed;
+  background-size: contain; */
+  background: rgba(100, 100, 100, 0.3);
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
-  /* font-size: 24px; */
   line-height: 28px;
   color: #ffffff;
-  /* padding-left: 1em; */
+}
+.start-instructions {
+  display: flex;
+  flex-direction: column;
+  padding: 4em;
+  align-items: center;
+  width: 70vw;
+  height: 40vh;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 28px;
+  color: white;
+  background: rgba(100, 100, 100, 0.3);
+}
+
+.start-instructions h1,
+.start-instructions p {
+  margin-bottom: 1.5em;
 }
 
 .title-su {
@@ -34,6 +54,7 @@
   line-height: 37px;
   color: #dfbc60;
   align-self: flex-start;
+  margin-bottom: 1rem;
 }
 
 .sub-title-su {
@@ -45,6 +66,10 @@
   align-self: flex-start;
   margin: 1.5em 0 1.5em 0;
   color: #ffffff;
+}
+
+.main-q-holder {
+  background: rgba(100, 100, 100, 0.7);
 }
 
 .form-question-su {

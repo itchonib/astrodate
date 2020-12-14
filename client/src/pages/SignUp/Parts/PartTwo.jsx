@@ -51,7 +51,7 @@ const PartTwo = ({ handleChange, userData }) => {
         </InputLabel>
         <NativeSelect
           id="birthCountry"
-          defaultValue=""
+          // defaultValue={null}
           onChange={handleChange}
           onClick={handleSearch}
           required
@@ -66,14 +66,14 @@ const PartTwo = ({ handleChange, userData }) => {
             })}
         </NativeSelect>
       </FormControl>
-      {userData.birthCountry && (
+      {userData?.birthCountry && (
         <SelectState
           className="user-input-su"
           handleChange={handleChange}
           userData={userData}
         />
       )}
-      {userData.birthState && (
+      {userData?.birthState && (
         <SelectCity handleChange={handleChange} userData={userData} />
       )}
     </div>

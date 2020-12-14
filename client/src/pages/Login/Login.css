@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 .container-login {
-  height: 150vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: url('https://images.pexels.com/photos/1146134/pexels-photo-1146134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
   background-size: cover;
   color: #ffffff;
