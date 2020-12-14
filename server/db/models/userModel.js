@@ -229,22 +229,22 @@ UserSchema.pre('save', async function (next) {
     user.age = Math.floor((TODAY - birthday.getTime()) / ONE_YEAR);
   }
 
-  if (user.isModified('birthCity')) {
-    let retCoords = await getLatLonFC(user.birthCity, user.birthState);
-    user.birthdayCoords = retCoords;
-  }
+  // if (user.isModified('birthCity')) {
+  //   let retCoords = await getLatLonFC(user.birthCity, user.birthState);
+  //   user.birthdayCoords = retCoords;
+  // }
 
-  if (user.isModified('zipCode')) {
-    let resCoords = await getLatLonFZ(user.zipCode);
-    user.currentCoords = resCoords;
-  }
+  // if (user.isModified('zipCode')) {
+  //   let resCoords = await getLatLonFZ(user.zipCode);
+  //   user.currentCoords = resCoords;
+  // }
 
-  if (user.isModified('birthdayCoords')) {
-    let planetInfo = await getSigns(user);
-    user.sunSign = planetInfo.planets.sun.sign;
-    user.moonSign = planetInfo.planets.moon.sign;
-    user.ascSign = planetInfo.angles.asc.sign;
-  }
+  // if (user.isModified('birthdayCoords')) {
+  //   let planetInfo = await getSigns(user);
+  //   user.sunSign = planetInfo.planets.sun.sign;
+  //   user.moonSign = planetInfo.planets.moon.sign;
+  //   user.ascSign = planetInfo.angles.asc.sign;
+  // }
   next();
 });
 

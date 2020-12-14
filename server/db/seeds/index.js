@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 //Import the DB connection
-require('../config/index');
+require('../config/index'), (zipCodeData = require('zipcode-city-distance'));
 
 const Message = require('../models/chat/privateMessages/messageModel'),
   Preference = require('../models/preferenceModel'),
@@ -8,6 +8,32 @@ const Message = require('../models/chat/privateMessages/messageModel'),
   User = require('../models/userModel'),
   faker = require('faker'),
   mongoose = require('mongoose');
+
+const genders = [
+  'Non-binary',
+  'Cis Man',
+  'Cis Woman',
+  'Trans Man',
+  'Trans Woman'
+];
+
+const zipRadius = zipCodeData.getRadius(33101, 200, 'M');
+const zipCodeArr = zipRadius.map((x) => x.zipcode);
+
+const signs = [
+  'Aries',
+  'Taurus',
+  'Gemini',
+  'Cancer',
+  'Leo',
+  'Virgo',
+  'Libra',
+  'Scorpio',
+  'Sagittarius',
+  'Capricorn',
+  'Aquarius',
+  'Pisces'
+];
 
 const dbReset = async () => {
   const collections = Object.keys(mongoose.connection.collections);
@@ -25,69 +51,45 @@ const dbReset = async () => {
   await Message.countDocuments({}, function (err, count) {
     console.log('Number of messages: ', count);
   });
-  //Count number of user documents ===> should be 0
-  await Preference.countDocuments({}, function (err, count) {
-    console.log('Number of preferences: ', count);
-  });
-  //Count number of message documents ===> should be 0
-  await Conversation.countDocuments({}, function (err, count) {
-    console.log('Number of conversations: ', count);
-  });
 
   //Loop 100 times and create 100 new users
   const userIdArray = [];
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 20; i++) {
     const me = new User({
-      name: `${faker.name.firstName()} ${faker.name.lastName()}`,
-      admin: Boolean(Math.round(Math.random())),
+      // name: `${faker.name.firstName()} ${faker.name.lastName()}`,
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName(),
+      zipCode: zipCodeArr[Math.floor(Math.random() * zipCodeArr.length)],
+      // admin: Boolean(Math.round(Math.random())),
+      gender: genders[Math.floor(Math.random() * genders.length)],
       email: faker.internet.email(),
       password: faker.internet.password(),
-      birthday: faker.internet.birthday(),
-      sunSign: faker.internet.enum(),
-      avatar: faker.image.avatar(),
-      gender: faker.name.gender()
+      birthday: faker.date.between('1980-01-01', '1998-12-31'),
+      birthTime: '12:00',
+      sunSign: signs[Math.floor(Math.random() * signs.length)],
+      moonSign: signs[Math.floor(Math.random() * signs.length)],
+      ascSign: signs[Math.floor(Math.random() * signs.length)],
+      bio: faker.lorem.paragraph(),
+      avatar: faker.image.business()
     });
     await me.generateAuthToken();
     userIdArray.push(me._id);
   }
 
-  // Loop 100 times and create 100 new messages
-  for (let i = 0; i < 100; i++) {
-    const message = new Message({
-      description: faker.lorem.paragraph(),
-      newStatus: faker.random.boolean,
-      recipient: faker.date.future(),
-      sender: userIdArray[Math.floor(Math.random() * userIdArray.length)],
-      senderAvatar: { me: avatar }
+  //PREFERENCES
+  for (let i = 0; i < 20; i++) {
+    const task = new Preference({
+      owner: userIdArray[i],
+      zodiac: signs[Math.floor(Math.random() * signs.length)],
+      age: [
+        faker.random.number({ min: 21, max: 50 }),
+        faker.random.number({ min: 51, max: 91 })
+      ],
+      interestedIn: genders[Math.floor(Math.random() * genders.length)],
+      distance: faker.random.number(200)
     });
-    await message.save();
-  }
-
-  //Loop 100 times and create 100 new preferences
-  for (let i = 0; i < 100; i++) {
-    const preference = new Preference({
-      zodiac: faker.lorem.word(),
-      age: Boolean(Math.round(Math.random())),
-      interestedIn: faker.name.gender(),
-      distance: userIdArray[Math.floor(Math.random() * userIdArray.length)],
-      elegibleZipCodes: faker.address.zipCode()
-    });
-    await message.save();
-  }
-
-  //Loop 100 times and create 100 new conversations
-  for (let i = 0; i < 100; i++) {
-    const conversation = new Conversation({
-      participants: `${[user._id]}``${
-        userIdArray[Math.floor(Math.random() * userIdArray.length)]
-      }`,
-      message: Boolean(Math.round(Math.random())),
-      dueDate: faker.date.future(),
-      owner: userIdArray[Math.floor(Math.random() * userIdArray.length)]
-    });
-    userIdArray.push(me._id),
-      userIdArray.push(recipient._id),
-      await message.save();
+    console.log(task);
+    await task.save();
   }
 
   //Count number of users ===> should be 100
@@ -106,7 +108,7 @@ const dbReset = async () => {
   });
 
   //Count number of preferences ===> should be 100
-  await Conversation.countDocuments({}, function (err, count) {
+  await Preference.countDocuments({}, function (err, count) {
     console.log('Number of preferences: ', count);
   });
 };
