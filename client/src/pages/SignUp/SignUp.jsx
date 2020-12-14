@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import './SignUp.css';
+import Loader from '../../components/Loader';
 import { AppContext } from '../../context/AppContext';
 import axios from 'axios';
 import { schema } from './schema';
@@ -9,6 +10,7 @@ import Stepper from './Stepper';
 const SignUp = ({ history }) => {
   const { gender, setCurrentUser } = useContext(AppContext);
   const [activeSchema, setActiveSchema] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [userData, setUserData] = useState('');
 
@@ -38,13 +40,16 @@ const SignUp = ({ history }) => {
       return;
     }
     try {
+      setIsLoading(true);
       const response = await axios.post('/api', userData);
       sessionStorage.setItem('user', response.data);
       setCurrentUser(response.data.user);
-      history.push('/preferences');
     } catch (error) {
       alert(error);
       console.log('SignUp Error: ', error);
+    } finally {
+      setIsLoading(false);
+      history.push('/preferences');
     }
     setActiveSchema(null);
   };
@@ -53,9 +58,7 @@ const SignUp = ({ history }) => {
     setActiveSchema(schema.one);
   };
 
-  if (!activeSchema) return <Start initForm={initForm} />;
-
-  const ActiveForm = activeSchema.form;
+  if (isLoading) return <Loader />;
 
   return (
     <div className={'main-holder-sign-up'}>
@@ -70,7 +73,11 @@ const SignUp = ({ history }) => {
           {activeSchema.next ? 'Next' : 'Submit'}{' '}
         </button> */}
 
-        <Stepper />
+        <Stepper
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+          userData={userData}
+        />
       </form>
     </div>
   );

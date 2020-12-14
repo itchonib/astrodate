@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../components/Loader';
 import './Preferences.css';
 import RangeSlider from './RangeSlider';
 import { FormControlLabel } from '@material-ui/core';
@@ -21,7 +22,7 @@ const options2 = [
 
 const Preferences = ({ history }) => {
   const { setCurrentUser } = useContext(AppContext);
-
+  // const [isLoading, setIsLoading] = useState(true);
   const [preferences, setPreferences] = useState({});
   const [zodiacPref, setZodiacPref] = useState([]);
   const [interestedIn, setInterestedIn] = useState([]);
@@ -57,6 +58,8 @@ const Preferences = ({ history }) => {
       console.log('SignUp Error: ', error);
     }
   };
+
+  // if (isLoading) return <Loader />;
 
   return (
     <div className={'preferences-container'}>

@@ -166,7 +166,6 @@ const useStyles = makeStyles((theme) => ({
   },
   tracker: {
     backgroundColor: 'transparent'
-    // color: 'white'
   },
   button: {
     marginRight: theme.spacing(1)
@@ -195,20 +194,20 @@ function getSteps() {
   ];
 }
 
-function getStepContent(step) {
+function getStepContent(step, props) {
   switch (step) {
     case 0:
-      return <PartOne />;
+      return <PartOne {...props} />;
     case 1:
-      return <PartTwo />;
+      return <PartTwo {...props} />;
     case 2:
-      return <PartThree />;
+      return <PartThree {...props} />;
     default:
       return 'Unknown step';
   }
 }
 
-export default function CustomizedSteppers() {
+export default function CustomizedSteppers(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -227,20 +226,6 @@ export default function CustomizedSteppers() {
 
   return (
     <div className={classes.root}>
-      {/* <Stepper alternativeLabel activeStep={activeStep}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-        <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel StepIconComponent={QontoStepIcon}>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper> */}
       <Stepper
         className={classes.tracker}
         alternativeLabel
@@ -256,17 +241,19 @@ export default function CustomizedSteppers() {
       <div>
         {activeStep === steps.length ? (
           <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
+            <Typography className={classes.instructions}>All done!</Typography>
+            <Button
+              onClick={props.handleSubmit}
+              color="secondary"
+              variant="contained"
+            >
+              Submit Form
             </Button>
           </div>
         ) : (
           <div>
             <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
+              {getStepContent(activeStep, props)}
             </Typography>
             <div style={{ display: 'flex', marginTop: '2em' }}>
               <Button
@@ -278,7 +265,6 @@ export default function CustomizedSteppers() {
               </Button>
               <Button
                 variant="contained"
-                //   color="primary"
                 onClick={handleNext}
                 className={classes.next}
               >

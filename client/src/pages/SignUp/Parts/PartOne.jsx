@@ -18,6 +18,11 @@ const theme = createMuiTheme({
       main: '#f44336',
       dark: '#ba000d',
       contrastText: '#000'
+    },
+    typography: {
+      button: {
+        trxtTransform: 'none'
+      }
     }
   }
 });
@@ -76,6 +81,7 @@ const PartOne = () => {
               //   <p className={'button-identity-p'}>{identity}</p>
               // </div>
               <Button
+                style={{ textTransform: 'none' }}
                 key={identity}
                 id="gender"
                 onClick={handleClick}
