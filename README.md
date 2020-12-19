@@ -1,52 +1,52 @@
-![alt text](https://upload.wikimedia.org/wikipedia/commons/1/12/Venice_ast_sm.jpg)
-
 # AstroDate
 
-Since antiquity, people have looked to the stars and sought guidance from the cosmos in making major life decisions on our terrestrial plain. The core tenets of western Astrology posit that happenings on Earth are reflections of the state of the cosmos. The zodiac, the band of 12 constellations through which the Sun, Moon, and planets move on their journey across the sky, has been used to articulate this system by mapping out these routes and using them in conjunction with the time, date and location of a person’s birth to create a horoscopic maps of their lives. AstroDate is a dating app that utilizes the western zodiac to determine the romantic compatibility of our users based on their birth charts, while also implementing whatever filters they might have set while creating their profiles.
+This project was originally designed as part of my final project at Wyncode. Within in two weeks, our amazing three person dev team built out the foundation of this app based on the great desgins from our UXUI partners. After finals, I wanted to keep learning from the app and cloned it to improve the UI and functionality 
 
-## How It Works
+You can see the live version of this repo here. 
+You can see the original repo here. 
 
-A user, who is at minumum 18 years of age, signs up to AstroDate shares their birthdate and birth location so as to establish their zodiac sign. The site determines their sign by saving the sign-up information to a database in which the immanuel API determines the user's zodiac signs. Of utmost importance for mathing, the Sun Sign, signifies their ego and is the focal point of determining compatibility. Additional information on users' Moon Sign, which shapes their emotional outlook, and Ascendant Sign, their external presentation to the world, is also provided. AstroDate then algorithmically determines by percentage the most suitable potential partners, those who share a compatibility percentage of at least 75%, and presents them to the user in the Matches page.
+This application allows users to meet others based on the compatibility of their astrological signs by creating a profile, inputting preferences,receving a match list, and chatting with other users.
 
-Users also have the option of applying additional filters based on criteria such as gender identity, location range and even express a preference for particular sun signs in their search. Users can message one another and engage in conversation on the site.
 
-## Dev Team: 
-- Ianne Itchon
-- Sekela Rita Mwaikinda 
-- Paul Vila 
+## Tech Stack
 
-## Features:
+This app was primarily build with MERN stack. [Material UI](https://material-ui.com/) was used to generate custom components like steppers, ranger sliders, and carousels. Socket.IO amd MongoDB change streams helped create the chat system. 
 
-- Profile creation
-- Private messaging
-- Astrological birth data
-- User matching
-- User filtering
-- Request-logging
-- Basic validation
-
-## Built With
-
-- React
-- CSS
-- JSON
-- Material-UI
-- Google Fonts
-- Sendgrid
-- Cloudinary
-- Mongoose DB
-- JSON Web Tokens
-- Socket.IO
-- SweetAlert
-- axios
-- brcyrpt
-- express-fileupload
-- husky
 
 ## APIs
 
-- Immanuel API (https://immanuel.app/)
-- Universial Tutorial (https://www.universal-tutorial.com/)
+- [Immanuel API] (https://immanuel.app/) was used to generate the astrological signs of users. 
+- [Universial Tutorial] (https://www.universal-tutorial.com/) to generate the lists of countries, states, and cities used in sign ups 
+-[Opendatasoft] was used to generate latitude and longitude of locations and zipcodes. (https://public.opendatasoft.com/explore/dataset/cities-and-towns-of-the-united-states/map/?location=2,51.73939,54.26715&basemap=jawg.streets)
+
+## Additional dependencies and imports 
+
+
+| BackEnd             | FrontEnd           |
+| ------------------- | ------------------ |
+| bcryptjs            | axios              |
+| cloudinary          | Google Fonts       | 
+| husky               | react              |
+| express             | react-dom          |
+| express-fileupload  | react-router-dom   |
+| faker               | react-scripts      |
+| jsonwebtoken        | web-vitals         |
+| mongoose            | SweetAlert         |    
+| passport            |        
+| passport-jwt        |
+| sendgrid            |
+| validator           |
+| zipcode-distance    |
+
+
+
+## Screenshots and Gifs
+
+Signup                               |  Preferences
+:-----------------------------------:|:-----------------------------------:
+![alt text](./images/signup.gif)     |  ![alt text](./images/preferences.gif)
+
+
 
 ## Setup
 
