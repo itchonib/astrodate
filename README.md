@@ -9,6 +9,17 @@ You can see the original repo [here](https://github.com/wyncode/c39_astro_match)
 This application allows users to meet others based on the compatibility of their astrological signs by creating a profile, inputting preferences,receving a match list, and chatting with other users.
 
 
+## Screenshots and Gifs
+
+Signup                               |  Preferences
+:-----------------------------------:|:-----------------------------------:
+![alt text](./images/signup.gif)     |  ![alt text](./images/preferences.gif)
+
+Matches                              | 
+:-----------------------------------:|
+![alt text](./images/profile-matches.gif)     |
+
+
 ## Tech Stack
 
 This app was primarily build with MERN stack. [Material UI](https://material-ui.com/) was used to generate custom components like steppers, ranger sliders, and carousels. Socket.IO amd MongoDB change streams helped create the chat system. 
@@ -39,17 +50,6 @@ This app was primarily build with MERN stack. [Material UI](https://material-ui.
 | validator           |
 | zipcode-distance    |
 
-
-
-## Screenshots and Gifs
-
-Signup                               |  Preferences
-:-----------------------------------:|:-----------------------------------:
-![alt text](./images/signup.gif)     |  ![alt text](./images/preferences.gif)
-
-Matches                              | 
-:-----------------------------------:|
-![alt text](./images/profile-matches.gif)     |
 
 
 ## Setup
