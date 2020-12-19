@@ -5,6 +5,7 @@ exports.getLatLonFZ = async (zipCode) => {
     let response = await axios.get(
       `https://public.opendatasoft.com/api/records/1.0/search/?dataset=us-zip-codes&q=${zipCode}&facet=zipcodetype&facet=state`
     );
+    console.log(response.data);
     return response.data.records[0].fields.coord;
   } catch (error) {
     console.log(error);

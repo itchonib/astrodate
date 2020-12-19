@@ -25,7 +25,7 @@ const SelectState = ({ handleChange, userData }) => {
         </InputLabel>
         <NativeSelect
           id="birthState"
-          defaultValue=""
+          // defaultValue=""
           onChange={handleChange}
           onClick={handleSearch}
           required

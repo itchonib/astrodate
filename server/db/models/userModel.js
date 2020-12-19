@@ -231,11 +231,13 @@ UserSchema.pre('save', async function (next) {
 
   if (user.isModified('birthCity')) {
     let retCoords = await getLatLonFC(user.birthCity, user.birthState);
+    console.log('retCoords', retCoords);
     user.birthdayCoords = retCoords;
   }
 
   if (user.isModified('zipCode')) {
     let resCoords = await getLatLonFZ(user.zipCode);
+    console.log('res corrds', resCoords);
     user.currentCoords = resCoords;
   }
 
