@@ -16,9 +16,9 @@ This app was primarily build with MERN stack. [Material UI](https://material-ui.
 
 ## APIs
 
-- [Immanuel API] (https://immanuel.app/) was used to generate the astrological signs of users. 
-- [Universial Tutorial] (https://www.universal-tutorial.com/) to generate the lists of countries, states, and cities used in sign ups 
--[Opendatasoft] was used to generate latitude and longitude of locations and zipcodes. (https://public.opendatasoft.com/explore/dataset/cities-and-towns-of-the-united-states/map/?location=2,51.73939,54.26715&basemap=jawg.streets)
+[Immanuel API] (https://immanuel.app/) was used to generate the astrological signs of users. 
+[Universial Tutorial] (https://www.universal-tutorial.com/) to generate the lists of countries, states, and cities used in sign ups 
+[Opendatasoft](https://public.opendatasoft.com/) was used to generate latitude and longitude of locations and zipcodes. 
 
 ## Additional dependencies and imports 
 
