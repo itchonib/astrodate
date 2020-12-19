@@ -2,8 +2,9 @@
 
 This project was originally designed as part of my final project at Wyncode. Within in two weeks, our amazing three person dev team built out the foundation of this app based on the great desgins from our UXUI partners. After finals, I wanted to keep learning from the app and cloned it to improve the UI and functionality 
 
-You can see the live version of this repo here. 
-You can see the original repo here. 
+** You can see the live version of this repo [here](https://itchonib-astrodate.herokuapp.com/). 
+
+** You can see the original repo [here](https://github.com/wyncode/c39_astro_match). 
 
 This application allows users to meet others based on the compatibility of their astrological signs by creating a profile, inputting preferences,receving a match list, and chatting with other users.
 
