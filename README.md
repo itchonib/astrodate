@@ -47,6 +47,9 @@ Signup                               |  Preferences
 :-----------------------------------:|:-----------------------------------:
 ![alt text](./images/signup.gif)     |  ![alt text](./images/preferences.gif)
 
+Matches                              | 
+:-----------------------------------:|
+![alt text](./images/profile-matches.gif)     |
 
 
 ## Setup
@@ -56,7 +59,7 @@ Signup                               |  Preferences
 - `cd client && yarn install`
 
 ## Available Build Commands
-- `yarn dev`: Runs BOTH your Express.JS and React developer environment locally at the same time. Any logs coming from Express will be prefaced with [0], any logs from - create-react-app will be prefaced with [1].
+- `yarn dev`: Runs BOTH your Express.JS and React developer environment locally at the same time. 
 - `yarn server`: Runs JUST your Express.JS server.
 - `yarn client`: Runs JUST your front-end React app.
 
