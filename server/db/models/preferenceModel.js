@@ -75,7 +75,7 @@ PreferenceSchema.pre('save', async function (next) {
   if (pref.isModified('distance')) {
     console.log('at preferences');
     let { zipCode } = await User.findOne({ _id: pref.owner });
-    console.log(zipcode);
+    console.log(zipCode);
     const zipRadius = zipCodeData.getRadius(zipCode, pref.distance, 'M');
     const zipCodeArr = zipRadius.map((x) => x.zipcode);
     pref.eligibleZipCodes = zipCodeArr;

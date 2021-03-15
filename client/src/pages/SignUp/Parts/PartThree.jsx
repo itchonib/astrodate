@@ -5,15 +5,15 @@ const PartThree = ({ handleChange }) => {
   return (
     <>
       <div className={'text-field-holder-su'}>
-        <h2> What is your current zip code? </h2>
+        {/* <h2> What is your current zip code? </h2>
         <TextField
           id="zipCode"
           type="text"
-          placeholder="zipcode"
+          value="33101"
           onChange={handleChange}
           className="user-input-su"
           required
-        />
+        /> */}
         <h2> What is your name?</h2>
         <TextField
           id="name"

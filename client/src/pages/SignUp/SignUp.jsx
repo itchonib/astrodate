@@ -15,7 +15,12 @@ const SignUp = ({ history }) => {
   const [userData, setUserData] = useState('');
 
   const handleChange = (e) => {
-    setUserData({ gender, ...userData, [e.target.id]: e.target.value });
+    setUserData({
+      gender,
+      zipCode: 33101,
+      ...userData,
+      [e.target.id]: e.target.value
+    });
   };
 
   const handleSubmit = async (e) => {

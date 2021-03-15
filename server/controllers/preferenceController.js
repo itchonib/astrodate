@@ -28,6 +28,7 @@ exports.createPreference = async (req, res) => {
       .send(`Preferences were created! Matches have been found...`);
   } catch (error) {
     res.status(400).json({ error: error.message });
+    console.log(error);
   }
 };
 

@@ -37,14 +37,14 @@ const Login = ({ history }) => {
         By signing up for Astrodate, you agree to our Terms of Service . Learn
         how we process your data in our Privacy Policy and Cookies Policy.{' '}
       </p>
-      <button className={'sign-in-button'} type="submit">
+      {/* <button className={'sign-in-button'} type="submit">
         {' '}
         <p>Sign in with Apple</p>
       </button>
       <button className={'sign-in-button'} type="submit">
         {' '}
         <p>Sign in with Facebook</p>
-      </button>
+      </button> */}
       <button
         className={'sign-in-button'}
         type="submit"
